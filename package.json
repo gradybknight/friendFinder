@@ -1,0 +1,17 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "npm package for friendFinder",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "author": "grady knight",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "path": "^0.12.7"
+  }
+}

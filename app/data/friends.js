@@ -1,0 +1,51 @@
+var accumulatedResults = [
+    {
+        "name":"Ahmed",
+        "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "scores":[
+            5,
+            1,
+            4,
+            4,
+            5,
+            1,
+            2,
+            5,
+            4,
+            1
+        ]
+     } ,
+     {
+        "name":"grady",
+        "photo":"http://2.bp.blogspot.com/-wurieHnEHGI/T0PDUR_89LI/AAAAAAAAFKE/UQ4eq-Bpx44/s1600/782600579_ef3eb55b39_z.jpg",
+        "scores":[
+            5,
+            5,
+            5,
+            5,
+            5,
+            1,
+            1,
+            1,
+            1,
+            1
+        ]
+     } ,
+     {
+        "name":"lowTest",
+        "photo":"http://2.bp.blogspot.com/-wurieHnEHGI/T0PDUR_89LI/AAAAAAAAFKE/UQ4eq-Bpx44/s1600/782600579_ef3eb55b39_z.jpg",
+        "scores":[
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ]
+     } 
+];
+module.exports = accumulatedResults;

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Friend Finder</title>
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
+
+</head>
+<body>
+
+<div class="container">
+    <div class="jumbotron">
+      <h1>Friend Finder</h1>
+      <h3>Answer a few basic questions.</h3>
+      <h3>Then find the friend with the greatest compatibility!</h3>
+    </div>
+    <div class = "container">
+        <div class="form-group">
+            <label for="age">Name</label>
+            <input type="text" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+            <label for="age">Picture Link</label>
+            <input type="text" class="form-control" id="pictureLink">
+        </div>
+        <h3>Question one</h3>
+        <p>Your mind is always buzzing with unexplored ideas and plans.</p>
+        <select id="q01">
+            <option value="1">1 - Disagree</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 - Agree</option>
+        </select>
+        <h3>Question two</h3>
+        <p>Generally speaking, you rely more on your experience than your imagination.</p>
+        <select id="q02">
+            <option value="1">1 - Disagree</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 - Agree</option>
+        </select>
+        <h3>Question three</h3>
+        <p>You find it easy to stay relaxed and focused even when there is some pressure.</p>
+        <select id="q03">
+            <option value="1">1 - Disagree</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 - Agree</option>
+        </select>
+        <h3>Question four</h3>
+        <p>You rarely do something just out of sheer curiosity.</p>
+        <select id="q04">
+            <option value="1">1 - Disagree</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 - Agree</option>
+        </select>
+        <h3>Question five</h3>
+        <p>People can rarely upset you.</p>
+        <select id="q05">
+            <option value="1">1 - Disagree</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 - Agree</option>
+        </select>
+        <h3>Question six</h3>
+        <p>It is often difficult for you to relate to other people’s feelings.</p>
+        <select id="q06">
+            <option value="1">1 - Disagree</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 - Agree</option>
+        </select>
+        <h3>Question seven</h3>
+        <p>In a discussion, truth should be more important than people’s sensitivities.</p>
+        <select id="q07">
+            <option value="1">1 - Disagree</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 - Agree</option>
+        </select>
+        <h3>Question eight</h3>
+        <p>You rarely get carried away by fantasies and ideas.</p>
+        <select id="q08">
+            <option value="1">1 - Disagree</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 - Agree</option>
+        </select>
+        <h3>Question nine</h3>
+        <p>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</p>
+        <select id="q09">
+            <option value="1">1 - Disagree</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 - Agree</option>
+        </select>
+        <h3>Question ten</h3>
+        <p>You feel more energetic after spending time with a group of people.</p>
+        <select id="q10">
+            <option value="1">1 - Disagree</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 - Agree</option>
+        </select>
+    </div>
+    <div>
+        <br>
+        <button class="btn btn-danger btn-lg" id = "submit-btn"><span class="glyphicon glyphicon-plus"></span> Submit Survey </button></a>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $("#submit-btn").on("click", function() {
+        event.preventDefault();
+        var questionAnswerArray = [
+            $("#q01").val(), 
+            $("#q02").val(), 
+            $("#q03").val(), 
+            $("#q04").val(), 
+            $("#q05").val(), 
+            $("#q06").val(), 
+            $("#q07").val(), 
+            $("#q08").val(), 
+            $("#q08").val(), 
+            $("#q10").val(), 
+        ];
+        surveyData = {
+            name:$("#name").val().trim(),
+            photoLink:$("#pictureLink").val().trim(),
+            scores:questionAnswerArray
+        };
+        console.log(`button clicked`);
+        console.log(surveyData);
+        $.post("/api/survey/submit",surveyData)
+            .then(function(data){
+                console.log(data);
+                alert(`closest match is ` + data.name);
+            });
+    });
+  </script>
+</body>
+</html>
